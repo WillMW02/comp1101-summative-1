@@ -1,7 +1,7 @@
 import express from 'express';
 import { join, dirname} from 'path';
 import { fileURLToPath } from 'url';
-import logger from './lib/logger';
+import logger from './lib/logger.js';
 
 const app = express();
 const __dirname = fileURLToPath(dirname(import.meta.url)); // workaround for ES6 not supporting __dirname for relative static folders 
