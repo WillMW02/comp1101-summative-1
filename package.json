@@ -1,0 +1,28 @@
+{
+  "name": "comp1101-summative-1",
+  "version": "1.0.0",
+  "description": "Website for COMP1101 - Programming Black first summative assessment",
+  "main": "src/server/app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node .",
+    "dev": "nodemon --watch src ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WillMW02/comp1101-summative-1.git"
+  },
+  "author": "William Maltby-Wehner",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/WillMW02/comp1101-summative-1/issues"
+  },
+  "homepage": "https://github.com/WillMW02/comp1101-summative-1#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
