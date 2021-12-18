@@ -13,4 +13,4 @@ app.listen(process.env.PORT??8080, () => {
 	logger.info(`Listening on port ${process.env.PORT??8080}`);
 });
 
-export default app
+export default app;
