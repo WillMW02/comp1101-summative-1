@@ -36,6 +36,10 @@ module.exports = {
 					'FunctionExpression': true
 				}
 			}
+		],
+		'eol-last': [
+			'error', 
+			'always'
 		]
 	}
 };
