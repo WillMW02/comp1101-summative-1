@@ -4,7 +4,7 @@ class logger {
 	/**
 	 * The length to pad the log type to
 	 * 
-	 * @access			private
+	 * @access private
 	 * @static
 	 * 
 	 * @type {number}
@@ -14,10 +14,10 @@ class logger {
 	/**
 	 * Logs a generic event
 	 * 
-	 * @access			public
+	 * @access public
 	 * @static
 	 * 
-	 * @param {*} str 					The content of the log event.
+	 * @param {*}		str 			The content of the log event.
 	 * @param {boolean}	[debug]			Whether the log is only to be printed during development.
 	 * 
 	 * @returns {void}
@@ -30,10 +30,10 @@ class logger {
 	/**
 	 * Logs an informational event
 	 * 
-	 * @access			public
+	 * @access public
 	 * @static
 	 * 
-	 * @param {*} str 					The content of the log event.
+	 * @param {*}		str 			The content of the log event.
 	 * @param {boolean}	[debug]			Whether the log is only to be printed during development.
 	 * 
 	 * @returns {void}
@@ -45,10 +45,10 @@ class logger {
 	/**
 	 * Logs a warning event
 	 * 
-	 * @access			public
+	 * @access public
 	 * @static
 	 * 
-	 * @param {*} str 					The content of the log event.
+	 * @param {*}		str 			The content of the log event.
 	 * @param {boolean}	[debug]			Whether the log is only to be printed during development.
 	 * 
 	 * @returns {void}
@@ -60,10 +60,10 @@ class logger {
 	/**
 	 * Logs an error event
 	 * 
-	 * @access			public
+	 * @access public
 	 * @static
 	 * 
-	 * @param {*} str 					The content of the log event.
+	 * @param {*}		str				The content of the log event.
 	 * @param {boolean}	[debug]			Whether the log is only to be printed during development.
 	 * 
 	 * @returns {void}
@@ -71,14 +71,14 @@ class logger {
 	static error(str, debug) {
 		this.#richLog(str, 'ERROR', chalk.red, debug);
 	}
-	
+
 	/**
 	 * Logs an acknowledgement event
 	 * 
-	 * @access			public
+	 * @access public
 	 * @static
 	 * 
-	 * @param {*} str 					The content of the log event.
+	 * @param {*}		str				The content of the log event.
 	 * @param {boolean}	[debug]			Whether the log is only to be printed during development.
 	 * 
 	 * @returns {void}
@@ -90,7 +90,7 @@ class logger {
 	/**
 	 * Generates a string containing the current system time in the format HH:mm:ss
 	 * 
-	 * @access			private
+	 * @access private
 	 * @static
 	 * 
 	 * @returns {string}				The time string.
@@ -103,7 +103,7 @@ class logger {
 	/**
 	 * Pads a number n, to be l characters long, using optional character c
 	 * 
-	 * @access			private
+	 * @access private
 	 * @static
 	 * 
 	 * @param {number}	n				The number to be padded.
@@ -119,7 +119,7 @@ class logger {
 	/**
 	 * Creates a rich log string containing the log type and text content with appropriate colouration.
 	 * 
-	 * @access			private
+	 * @access private
 	 * @static
 	 * 
 	 * @param {*}		str				The content of the log event.
