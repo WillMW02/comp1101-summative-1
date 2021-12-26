@@ -37,9 +37,7 @@ module.exports = {
 				}
 			}
 		],
-		'eol-last': [
-			'error', 
-			'always'
-		]
+		'eol-last': 'error',
+		'no-var' : 'error'
 	}
 };
