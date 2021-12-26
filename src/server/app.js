@@ -1,4 +1,4 @@
-import './env.config.js'; // workaround for ES imports being hoisted, to import the env file before other modules
+import './config/env.config.js'; // workaround for ES imports being hoisted, to import the env file before other modules
 import express from 'express';
 import { join, dirname} from 'path';
 import { fileURLToPath } from 'url';
