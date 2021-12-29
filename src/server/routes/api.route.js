@@ -7,6 +7,6 @@ const router = Router();
 
 router.use('/user/', UserRouter);
 
-router.use('/review', ReviewRouter);
+router.use('/review/', ReviewRouter);
 
 export default router;
