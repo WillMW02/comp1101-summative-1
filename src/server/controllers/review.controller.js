@@ -1,42 +1,48 @@
 /* eslint-disable no-unused-vars */
 
-/**
- * 
- * @param {*} req 
- * @param {*} res 
- * @returns void
- */
-export const getReviews = (req, res) => {
+export default database => {
+	const controller = {};
 
-	res.send();
-};
+	/**
+	 * 
+	 * @param {*} req 
+	 * @param {*} res 
+	 * @returns void
+	 */
+	controller.getReviews = (req, res) => {
 
-/**
- * 
- * @param {*} req 
- * @param {*} res 
- * @returns void
- */
-export const getReview = (req, res) => {
+		res.send();
+	};
 
-};
+	/**
+	 * 
+	 * @param {*} req 
+	 * @param {*} res 
+	 * @returns void
+	 */
+	controller.getReview = (req, res) => {
 
-/**
- * 
- * @param {*} req 
- * @param {*} res 
- * @returns void
- */
-export const createReview = (req, res) => {
+	};
 
-};
+	/**
+	 * 
+	 * @param {*} req 
+	 * @param {*} res 
+	 * @returns void
+	 */
+	controller.createReview = (req, res) => {
 
-/**
- * 
- * @param {*} req 
- * @param {*} res 
- * @returns void
- */
-export const deleteReview = (req, res) => {
+	};
 
+	/**
+	 * 
+	 * @param {*} req 
+	 * @param {*} res 
+	 * @returns void
+	 */
+	controller.deleteReview = (req, res) => {
+
+	};
+
+	return controller;
 };

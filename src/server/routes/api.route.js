@@ -3,10 +3,12 @@ import UserRouter from './user.route.js';
 import ReviewRouter from './review.route.js';
 
 
-const router = Router();
+export default database => {
+	const router = Router();
 
-router.use('/user/', UserRouter);
+	router.use('/user/', UserRouter(database));
 
-router.use('/review/', ReviewRouter);
+	router.use('/review/', ReviewRouter(database));
 
-export default router;
+	return router;
+};

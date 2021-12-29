@@ -1,13 +1,17 @@
 import { Router } from 'express';
-import * as ReviewController from '../controllers/review.controller.js';
+import ReviewController from '../controllers/review.controller.js';
 
-const router = Router();
+export default database => {
+	const controller = ReviewController(database);
+	const router = Router();
 
-router.get('/', ReviewController.getReviews);
-router.get('/:id', ReviewController.getReview);
+	router.get('/', controller.getReviews);
+	router.get('/:id', controller.getReview);
 
-router.post('/', ReviewController.createReview);
+	router.post('/', controller.createReview);
 
-router.delete('/:id', ReviewController.deleteReview);
+	router.delete('/:id', controller.deleteReview);
 
-export default router;
+	return router;
+};
+
