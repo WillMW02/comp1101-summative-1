@@ -12,6 +12,12 @@ const __dirname = fileURLToPath(dirname(import.meta.url)); // workaround for ES6
 app.use(express.static(join(__dirname, '../public')));
 app.use(cors());
 
+app.use((req, res, next) => {
+	res.setHeader('X-Powered-By', 'Magic and Pixie Dust');
+	res.setHeader('X-Author', 'William Maltby-Wehner');
+	next();
+});
+
 app.use('/api/', ApiRouter);
 
 app.listen(process.env.PORT??8080, () => {
