@@ -46,3 +46,8 @@ The code in this repository is protected by the [Creative Commons Zero v1.0 Univ
 - [ ] Register New User
 - [ ] Add Avatar To A User Specified By Username (Case Insensitive)
 - [ ] "Log In" to existing user to post reviews under that user
+
+---
+
+##### Contact
+William Maltby Wehner | <ww@byteania.com>
