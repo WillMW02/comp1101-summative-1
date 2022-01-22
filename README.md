@@ -29,8 +29,8 @@ The code in this repository is protected by the [Creative Commons Zero v1.0 Univ
 ## Features
 ### API
 #### Reviews
-- [ ] Get Specified Review By ID
-- [ ] Get All Reviews
+- [x] Get Specified Review By ID
+- [x] Get All Reviews
 - [ ] Create Review
 - [ ] Delete Review Specified by ID
 #### Users
