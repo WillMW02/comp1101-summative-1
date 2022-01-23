@@ -4,3 +4,6 @@ node_modules
 
 # Ignore .env file
 .env
+
+# Ignore Built CSS files
+src/public/assets/css
