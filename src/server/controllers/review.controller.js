@@ -18,7 +18,6 @@ export const getReviews = async (req, res, next) => {
 		res.status(404);
 		res.send();
 	} catch(err) {
-		console.log(err.name);
 		next(err);
 		return;
 	}
@@ -38,7 +37,6 @@ export const getReview = async (req, res, next) => {
 		res.status(404);
 		res.send();
 	} catch(err) {
-		console.log(err.name);
 		next(err);
 		return;
 	}
@@ -61,7 +59,16 @@ export const createReview = (req, res) => {
  * @param {*} res 
  * @returns void
  */
-export const deleteReview = (req, res) => {
-	res.status(501);
-	res.send();
+export const deleteReview = async (req, res, next) => {
+	try {
+		if(await ReviewModel.remove(req.params.id)) {
+			res.status(202);
+		} else {
+			res.status(404);
+		}
+		res.send();
+	} catch(err) {
+		next(err);
+		return;
+	}
 };
