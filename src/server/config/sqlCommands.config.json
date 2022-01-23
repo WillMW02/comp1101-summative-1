@@ -1,0 +1,15 @@
+{
+	"reviews": {
+		"get": "SELECT reviews.id, reviews.title, reviews.content, reviews.date, reviews.rating, users.name, users.avatar FROM reviews INNER JOIN users ON reviews.user_id = users.id WHERE reviews.id = ?;",
+		"getAll": "SELECT reviews.id, reviews.title, reviews.content, reviews.date, reviews.rating, users.name, users.avatar FROM reviews INNER JOIN users ON reviews.user_id = users.id",
+		"exists": "SELECT reviews.id FROM reviews WHERE id = ?;",
+		"create": "INSERT INTO reviews (user_id, title, content, date, rating) VALUES (?,?,?,NOW(),?);",
+		"delete": "DELETE FROM reviews WHERE id = ?;"
+	},
+	"users": {
+		"get": "",
+		"getAll": "",
+		"create": "",
+		"delete": ""
+	}
+}
