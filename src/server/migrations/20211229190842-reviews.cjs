@@ -38,7 +38,8 @@ exports.up = function(db, callback) {
 		},
 		title: 'string',
 		content: 'string',
-		date: 'datetime'
+		date: 'datetime',
+		rating: 'int'
 	});
 	
 	callback();
