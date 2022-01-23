@@ -23,7 +23,7 @@ class logger {
 	 * @returns {void}
 	 */
 	static log(str, debug) {
-		if (debug && process.env=='production') return;
+		if (debug && process.env.NODE_ENV=='production') return;
 		console.log(`${chalk.gray(this.#curTime())} ${str}`);
 	}
 
