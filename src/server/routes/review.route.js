@@ -56,38 +56,31 @@ router.get('/:id', ReviewController.getReview);
  *     summary: Create a review
  *     tags: 
  *       - reviews
- *     consumes:
- *       - application/json
- *     parameters:
- *       - in: body
- *         name: review
- *         description: The review to be created
- *         schema:
- *           type: object
- *           required:
- *             - user_id
- *             - title
- *             - content
- *             - rating
- *           properties:
- *             user_id:
- *               type: integer
- *               description: The unique identifier of the user posting the review
- *               example: 10
- *             title:
- *               type: string
- *               description: The title of the review to be created
- *               example: Mediocre Service
- *             content:
- *               type: string
- *               description: The description of the review
- *               example: Experience was sub par, nothing special.
- *             rating:
- *               type: integer
- *               minimum: 0
- *               maximum: 5
- *               description: the rating (in stars) between one and five
- *               example: 3
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               user_id:
+ *                 type: integer
+ *                 description: The unique identifier of the user posting the review
+ *                 example: 10
+ *               title:
+ *                 type: string
+ *                 description: The title of the review to be created
+ *                 example: Mediocre Service
+ *               content:
+ *                 type: string
+ *                 description: The description of the review
+ *                 example: Experience was sub par, nothing special.
+ *               rating:
+ *                 type: integer
+ *                 minimum: 0
+ *                 maximum: 5
+ *                 description: the rating (in stars) between one and five
+ *                 example: 3
  *     responses:
  *       201:
  *         description: Review Created
