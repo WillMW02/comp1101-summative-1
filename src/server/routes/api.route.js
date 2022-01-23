@@ -7,7 +7,7 @@ import ReviewRouter from './review.route.js';
 const swaggerDefinition  = {
 	openapi: '3.0.0',
 	info: {
-		title: 'COMP1101 Summative 1 API Documentation',
+		title: 'ReviewPilot API Documentation',
 		version: '1.0.0',
 	},
 	servers: [
@@ -22,12 +22,17 @@ const spec = swaggerJSDoc({
 	apis: ['./src/server/routes/*.js']
 });
 
+const modifications = {
+	customCss: '.swagger-ui .topbar { display: none }',
+	customSiteTitle: 'ReviewPilot API Docs'
+};
+
 const router = Router();
 
 router.use('/user/', UserRouter);
 
 router.use('/review/', ReviewRouter);
 
-router.use('/docs/', swaggerUi.serve, swaggerUi.setup(spec));
+router.use('/docs/', swaggerUi.serve, swaggerUi.setup(spec, modifications));
 
 export default router;
