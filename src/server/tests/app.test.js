@@ -198,8 +198,6 @@ describe('Test DELETE /api/user/{id} endpoint', () => {
 	});
 
 	test('DELETE /api/user/{id} with valid id', async () => {
-		console.log(userID);
-		console.log(reviewID2);
 		let res = await server.delete(`/api/user/${userID}`);
 
 		expect(res.status).toBe(202);
