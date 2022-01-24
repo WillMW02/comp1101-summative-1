@@ -8,8 +8,10 @@
 	},
 	"users": {
 		"get": "SELECT users.id, users.name, users.avatar FROM users WHERE id = ?;",
-		"getAll": "SELECT users.id, user.name, users.avatar FROM users;",
+		"getByName": "SELECT users.id, users.name, users.avatar FROM users WHERE name = ?;",
+		"getAll": "SELECT users.id, users.name, users.avatar FROM users;",
 		"exists": "SELECT users.id FROM users WHERE id = ?;",
+		"existsByName": "SELECT users.id FROM users WHERE name = ?;",
 		"create": "INSERT INTO users (name, avatar) VALUES (?,?);SELECT LAST_INSERT_ID();",
 		"delete": "DELETE FROM users WHERE id = ?;"
 	}
