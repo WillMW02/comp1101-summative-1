@@ -41,8 +41,15 @@ export const getAll = async () => {
 export const create = async review => {
 	const conn = await getConn();
 	try {
-		const rows = await conn.query(SqlCommands.reviews.create, [review.user_id, review.title, review.content, review.rating]);
-		return rows[0];
+		let rows = await conn.query(SqlCommands.users.exists, [review.user_id]);
+		if(rows.length > 0) {
+			rows = await conn.query(SqlCommands.reviews.create, [review.user_id, review.title, review.content, review.rating]);
+			return {
+				id: rows[0].insertId
+			};
+		} return {
+			err: 'No Such User'
+		};
 	} catch(err) {
 		logger.error(err, true);
 		throw new Error('An error occured whilst creating a review');

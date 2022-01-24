@@ -31,7 +31,7 @@ The code in this repository is protected by the [Creative Commons Zero v1.0 Univ
 #### Reviews
 - [x] Get Specified Review By ID
 - [x] Get All Reviews
-- [ ] Create Review
+- [x] Create Review
 - [x] Delete Review Specified by ID
 #### Users
 - [ ] Get Specified User By ID
