@@ -9,7 +9,7 @@ const router = Router();
  *   get:
  *     summary: Retrieve all reviews
  *     tags: 
- *       - reviews
+ *       - Reviews
  *     responses:
  *       200:
  *         description: A list of all reviews
@@ -28,7 +28,7 @@ router.get('/', ReviewController.getReviews);
  *   get:
  *     summary: Retrieve a single review specified by ID
  *     tags: 
- *       - reviews
+ *       - Reviews
  *     parameters:
  *       - in: path
  *         name: id
@@ -55,7 +55,7 @@ router.get('/:id', ReviewController.getReview);
  *   post:
  *     summary: Create a review
  *     tags: 
- *       - reviews
+ *       - Reviews
  *     requestBody:
  *       required: true
  *       content:
@@ -114,7 +114,7 @@ router.post('/', ReviewController.createReview);
  *   delete:
  *     summary: Delete a single review specified by ID
  *     tags: 
- *       - reviews
+ *       - Reviews
  *     parameters:
  *       - in: path
  *         name: id
