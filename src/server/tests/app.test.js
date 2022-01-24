@@ -26,7 +26,7 @@ describe('Test POST /api/user endpoint', () => {
 	});
 
 	test('Test POST /api/user with valid body', async () => {
-		let res = await server.post('/api/user')
+		const res = await server.post('/api/user')
 			.send({
 				name: userName,
 				avatar: 'base64'
@@ -36,6 +36,18 @@ describe('Test POST /api/user endpoint', () => {
 		expect(res.type).toBe('application/json');
 		expect(res.body.id).not.toBeUndefined();
 		userID = res.body.id;
+	});
+
+	test('Test POST /api/user with existing username', async () => {
+		const res = await server.post('/api/user')
+			.send({
+				name: userName,
+				avatar: 'bas64'
+			});
+		
+		expect(res.status).toBe(409);
+		expect(res.type).toBe('application/json');
+		expect(res.body).toMatchObject({err:'User Already Exists'});
 	});
 });
 
@@ -57,6 +69,20 @@ describe('Test GET /api/user/{id} endpoint', () => {
 
 	test('GET /api/user/{id} with valid id', async () => {
 		const res = await server.get(`/api/user/${userID}`);
+
+		expect(res.status).toBe(200);
+		expect(res.type).toBe('application/json');
+	});
+});
+
+describe('Test GET /api/user/name/{name} endpoint', () => {
+	test('GET /api/user/name/{name} with invalid name', async () => {
+		const res = await server.get('/api/user/name');
+		expect(res.status).toBe(404);
+	});
+
+	test('GET /api/user/name/{name} with valid name', async () => {
+		const res = await server.get(`/api/user/name/${userName}`);
 
 		expect(res.status).toBe(200);
 		expect(res.type).toBe('application/json');
