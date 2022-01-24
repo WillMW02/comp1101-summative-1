@@ -7,8 +7,9 @@ import logger from '../lib/logger.js';
 */
 /**
  * 
- * @param {*} req 
- * @param {*} res 
+ * @param {Express.Request} req 
+ * @param {Express.Response} res 
+ * @param {function} next
  * @returns void
  */
 export const getReviews = async (req, res, next) => {
@@ -28,8 +29,9 @@ export const getReviews = async (req, res, next) => {
 
 /**
  * 
- * @param {*} req 
- * @param {*} res 
+ * @param {Express.Request} req 
+ * @param {Express.Response} res 
+ * @param {function} next
  * @returns void
  */
 export const getReview = async (req, res, next) => {
@@ -49,8 +51,9 @@ export const getReview = async (req, res, next) => {
 
 /**
  * 
- * @param {*} req 
- * @param {*} res 
+ * @param {Express.Request} req 
+ * @param {Express.Response} res 
+ * @param {function} next
  * @returns void
  */
 export const createReview = async (req, res, next) => {
@@ -84,8 +87,9 @@ export const createReview = async (req, res, next) => {
 
 /**
  * 
- * @param {*} req 
- * @param {*} res 
+ * @param {Express.Request} req 
+ * @param {Express.Response} res 
+ * @param {function} next
  * @returns void
  */
 export const deleteReview = async (req, res, next) => {
