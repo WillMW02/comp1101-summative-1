@@ -84,6 +84,27 @@ router.get('/:id', ReviewController.getReview);
  *     responses:
  *       201:
  *         description: Review Created
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: integer
+ *                   description: the ID of the created review
+ *                   example: 1
+ *       406:
+ *         description: Request Body did not pass validation
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 err:
+ *                   type: string
+ *                   description: Error message explaining invalid data
+ *                   example: No Such User
+ *                 
  */
 router.post('/', ReviewController.createReview);
 
