@@ -3,10 +3,11 @@ import SqlCommands from '../config/sqlCommands.config.json';
 import logger from '../lib/logger.js';
 
 /**
+ * Get a review by id
  * 
  * @param {string | number} id the ID of the review to be retrieved
  * 
- * @returns {string} JSON object containing the review.
+ * @returns {Object} JSON object containing the review.
  */
 export const get = async id => {
 	const conn = await getConn();
@@ -20,8 +21,9 @@ export const get = async id => {
 };
 
 /**
+ * Get all reviews in the database
  * 
- * @returns 
+ * @returns {Object[]} Array containing all reviews
  */
 export const getAll = async () => {
 	const conn = await getConn();
@@ -35,8 +37,15 @@ export const getAll = async () => {
 };
 
 /**
+ * Create a review from provided object
  * 
- * @param {Object} review 
+ * @param {Object} review
+ * @param {string | number} review.user_id
+ * @param {string} review.title
+ * @param {string} review.content
+ * @param {number} review.rating
+ * 
+ * @returns {Object} Object contining the ID of the created review 
  */
 export const create = async review => {
 	const conn = await getConn();
@@ -57,8 +66,11 @@ export const create = async review => {
 };
 
 /**
+ * Delete a review from the database
  * 
  * @param {string | number} id the ID of the review to be deleted
+ * 
+ * @returns {boolean} Whether the deletion was successful
  */
 export const remove = async id => {
 	const conn = await getConn();
