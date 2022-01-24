@@ -1,4 +1,4 @@
-import chalk from 'chalk';
+import { Colour } from '../lib/consoleColour.js';
 
 class logger {
 	/**
@@ -24,7 +24,7 @@ class logger {
 	 */
 	static log(str, debug) {
 		if (debug && process.env.NODE_ENV=='production') return;
-		console.log(`${chalk.gray(this.#curTime())} ${str}`);
+		console.log(`${Colour.grey}${(this.#curTime())}${Colour.reset} ${str}`);
 	}
 
 	/**
@@ -39,7 +39,7 @@ class logger {
 	 * @returns {void}
 	 */
 	static info(str, debug) {
-		this.#richLog(str, 'INFO', chalk.cyan, debug);
+		this.#richLog(str, 'INFO', Colour.cyan, debug);
 	}
 
 	/**
@@ -54,7 +54,7 @@ class logger {
 	 * @returns {void}
 	 */
 	static warn(str, debug) {
-		this.#richLog(str, 'WARN', chalk.yellow, debug);
+		this.#richLog(str, 'WARN', Colour.yellow, debug);
 	}
 
 	/**
@@ -69,7 +69,7 @@ class logger {
 	 * @returns {void}
 	 */
 	static error(str, debug) {
-		this.#richLog(str, 'ERROR', chalk.red, debug);
+		this.#richLog(str, 'ERROR', Colour.red, debug);
 	}
 
 	/**
@@ -84,7 +84,7 @@ class logger {
 	 * @returns {void}
 	 */
 	static ok(str, debug) {
-		this.#richLog(str, 'OK', chalk.green, debug);
+		this.#richLog(str, 'OK', Colour.green, debug);
 	}
 
 	/**
@@ -130,7 +130,7 @@ class logger {
 	 * @returns {string}				Formatted log content.
 	 */
 	static #richLog(str, type, colour, debug) {
-		const colourText = colour(type);
+		const colourText = `${colour}${type}${Colour.reset}`;
 		this.log(`${`[${colourText}]`.padStart(this.#padLen + (colourText.length - type.length))} ${str}`, debug);
 	}
 }
