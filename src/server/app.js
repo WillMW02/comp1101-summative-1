@@ -10,6 +10,7 @@ const app = express();
 const __dirname = fileURLToPath(dirname(import.meta.url)); // workaround for ES6 not supporting __dirname for relative static folders 
 
 app.use(express.static(join(__dirname, '../public')));
+app.use('/test-coverage', express.static(join(__dirname, '../coverage/lcov-report')));
 app.use(bodyParser.json());
 app.use(cors());
 
