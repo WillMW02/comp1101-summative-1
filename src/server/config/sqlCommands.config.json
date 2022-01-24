@@ -3,13 +3,14 @@
 		"get": "SELECT reviews.id, reviews.title, reviews.content, reviews.date, reviews.rating, users.name, users.avatar FROM reviews INNER JOIN users ON reviews.user_id = users.id WHERE reviews.id = ?;",
 		"getAll": "SELECT reviews.id, reviews.title, reviews.content, reviews.date, reviews.rating, users.name, users.avatar FROM reviews INNER JOIN users ON reviews.user_id = users.id",
 		"exists": "SELECT reviews.id FROM reviews WHERE id = ?;",
-		"create": "INSERT INTO reviews (user_id, title, content, date, rating) VALUES (?,?,?,NOW(),?);",
+		"create": "INSERT INTO reviews (user_id, title, content, date, rating) VALUES (?,?,?,NOW(),?);SELECT LAST_INSERT_ID();",
 		"delete": "DELETE FROM reviews WHERE id = ?;"
 	},
 	"users": {
-		"get": "",
-		"getAll": "",
-		"create": "",
-		"delete": ""
+		"get": "SELECT users.id, users.name, users.avatar FROM users WHERE id = ?;",
+		"getAll": "SELECT users.id, user.name, users.avatar FROM users;",
+		"exists": "SELECT users.id FROM users WHERE id = ?;",
+		"create": "INSERT INTO users (name, avatar) VALUES (?,?);SELECT LAST_INSERT_ID();",
+		"delete": "DELETE FROM users WHERE id = ?;"
 	}
 }
