@@ -17,6 +17,8 @@ export const get = async id => {
 	} catch(err) {
 		logger.error(err, true);
 		throw new Error('An error occured whilst fetching a review');
+	} finally {
+		if (conn) conn.end();
 	}
 };
 
@@ -33,6 +35,8 @@ export const getAll = async () => {
 	} catch(err) {
 		logger.error(err, true);
 		throw new Error('An error occured whilst fetching reviews');
+	} finally {
+		if (conn) conn.end();
 	}
 };
 
@@ -62,6 +66,8 @@ export const create = async review => {
 	} catch(err) {
 		logger.error(err, true);
 		throw new Error('An error occured whilst creating a review');
+	} finally {
+		if (conn) conn.end();
 	}
 };
 
@@ -84,5 +90,7 @@ export const remove = async id => {
 	} catch(err) {
 		logger.error(err, true);
 		throw new Error('An error occured whilst deleting a review');
+	} finally {
+		if (conn) conn.end();
 	}
 };
