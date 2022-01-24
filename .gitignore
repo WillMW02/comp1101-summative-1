@@ -7,3 +7,6 @@ node_modules
 
 # Ignore Built CSS files
 src/public/assets/css
+
+# Ignore Coverage Reports
+src/coverage
