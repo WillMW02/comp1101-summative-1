@@ -29,10 +29,10 @@ The code in this repository is protected by the [Creative Commons Zero v1.0 Univ
 ## Features
 ### API
 #### Reviews
-- [x] Get Specified Review By ID
-- [x] Get All Reviews
-- [x] Create Review
-- [x] Delete Review Specified by ID
+- [x] ~~Get Specified Review By ID~~
+- [x] ~~Get All Reviews~~
+- [x] ~~Create Review~~
+- [x] ~~Delete Review Specified by ID~~
 #### Users
 - [ ] Get Specified User By ID
 - [ ] Get All Users
