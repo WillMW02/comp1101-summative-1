@@ -11,6 +11,14 @@ The code in this repository is protected by the [Creative Commons Zero v1.0 Univ
 
 --- 
 
+## Important endpoints
+- `/` - Web root
+- `/api/` - Base route for all API endpoints
+	- `/api/review/` - All review API endpoints
+	- `/api/user/` - All user API endpoints
+	- `/api/docs/` - Home of all API documentation
+- `/test-coverage/` - Jest test coverage analysis
+
 ## Installation
 1. Clone this repository using `git clone {REPO_URL}`
 2. Install dependencies using `npm i`
