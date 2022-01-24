@@ -13,6 +13,4 @@ const conn_pool = createPool({
  * Get a connection to the database from the connection pool.
  * @returns {Promise<PoolConnection>}
  */
-export const getConn = () => {
-	return conn_pool.getConnection();
-};
+export const getConn = () => conn_pool.getConnection();
