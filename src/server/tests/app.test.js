@@ -51,6 +51,30 @@ describe('Test POST /api/user endpoint', () => {
 	});
 });
 
+describe('Test POST /api/user/{id}/avatar', () => {
+	test('Test POST /api/user/{id}/avatar with invalid ID', async () => {
+		const res = await server.post('/api/user/-1/avatar')
+			.send({avatar: 'https://andrei.krokh.in/andrei.jpg'});
+		expect(res.status).toBe(404);
+	});
+
+	test('Test POST /api/user/{id}/avatar with invalid body', async () => {
+		const res = await server.post(`/api/user/${userID}/avatar`)
+			.send({invalid: true});
+
+		expect(res.status).toBe(406);
+		expect(res.type).toBe('application/json');
+		expect(res.body).toMatchObject({err: 'Request body did not include required parameters'});
+	});
+
+	test('Test POST /api/user/{id}/avatar with valid body', async () => {
+		const res = await server.post(`/api/user/${userID}/avatar`)
+			.send({avatar: 'https://andrei.krokh.in/andrei.jpg'});
+
+		expect(res.status).toBe(202);
+	});
+});
+
 describe('Test GET /api/user endpoint', () => {
 	test('GET /api/user', async () => {
 		const res = await server.get('/api/user');
