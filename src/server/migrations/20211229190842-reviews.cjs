@@ -36,8 +36,8 @@ exports.up = function(db, callback) {
 				}
 			}
 		},
-		title: 'string',
-		content: 'string',
+		title: 'longtext',
+		content: 'longtext',
 		date: 'datetime',
 		rating: 'int'
 	});

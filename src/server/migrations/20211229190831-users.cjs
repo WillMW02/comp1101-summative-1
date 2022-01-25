@@ -19,7 +19,7 @@ exports.up = function(db, callback) {
 	db.createTable('users', {
 		id: { type: 'int', primaryKey: true, autoIncrement: true },
 		name: 'string',
-		avatar: 'string'
+		avatar: 'longtext'
 	});
 
 	callback();
