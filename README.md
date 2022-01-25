@@ -42,19 +42,17 @@ The code in this repository is protected by the [Creative Commons Zero v1.0 Univ
 - [x] ~~Create Review~~
 - [x] ~~Delete Review Specified by ID~~
 #### Users
-- [ ] Get Specified User By ID
-- [ ] Get Specified User By Name
-- [ ] Get All Users
-- [ ] Create User
-- [ ] Delete User Specified By ID and all related Reviews
+- [x] ~~Get Specified User By ID~~
+- [x] ~~Get Specified User By Name~~
+- [x] ~~Get All Users~~
+- [x] ~~Create User~~
+- [x] ~~Delete User Specified By ID and all related Reviews~~
 ### Frontend
 #### Reviews
 - [ ] Post New Review
-- [ ] Read All Existing Reviews
+- [x] ~~Read All Existing Reviews~~
 #### Users
-- [ ] Register New User
 - [ ] Add Avatar To A User Specified By Username (Case Insensitive)
-- [ ] "Log In" to existing user to post reviews under that user
 
 ---
 
