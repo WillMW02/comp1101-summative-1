@@ -63,7 +63,7 @@ router.get('/:id', UserController.getUser);
  *         description: The Unique name of the user to be retrieved
  *         schema:
  *           type: string
- *           example: William Maltby-Wehner
+ *           example: Andrei Krokhin
  *     responses:
  *       200:
  *         description: A single user
@@ -93,11 +93,11 @@ router.get('/name/:name', UserController.getUserByName);
  *               name:
  *                 type: string
  *                 description: The name of the user to be created
- *                 example: William Maltby-Wehner
+ *                 example: Andrei Krokhin
  *               avatar:
  *                 type: string
- *                 description: The base64 encoded avatar of the user
- *                 example: QmlnIHVwIHN0ZXZlbiBicmFkbGV5
+ *                 description: The link to the avatar of the user
+ *                 example: https://andrei.krokh.in/andrei.jpg
  *     responses:
  *       201:
  *         description: User Created
@@ -173,11 +173,11 @@ router.delete('/:id', UserController.deleteUser);
  *         name:
  *           type: string
  *           description: The name of the reviewer
- *           example: William Maltby-Wehner
+ *           example: Andrei Krokhin
  *         avatar:
  *           type: string
- *           description: The B64 encoded avatar of the user
- *           example: QmlnIHVwIHN0ZXZlbiBicmFkbGV5
+ *           description: The link to the avatar of the user
+ *           example: https://andrei.krokh.in/andrei.jpg
  */
 
 export default router;
