@@ -1,0 +1,25 @@
+$primary: HoneyDew;
+$background: DimGrey;
+
+body {
+	background-color: #e5e5e5;
+	height: 100vh;
+}
+
+.review {
+	margin-bottom: 1rem;
+}
+
+.star {
+	color: #808080;
+}
+
+.star.active {
+	color: #ddb036;
+}
+
+.title {
+	margin-bottom: 0.5rem !important;
+}
+
+@import '../../../../node_modules/bulma/bulma';
