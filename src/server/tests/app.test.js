@@ -29,7 +29,7 @@ describe('Test POST /api/user endpoint', () => {
 		const res = await server.post('/api/user')
 			.send({
 				name: userName,
-				avatar: 'base64'
+				avatar: 'https://andrei.krokh.in/andrei.jpg'
 			});
 
 		expect(res.status).toBe(201);
@@ -42,7 +42,7 @@ describe('Test POST /api/user endpoint', () => {
 		const res = await server.post('/api/user')
 			.send({
 				name: userName,
-				avatar: 'bas64'
+				avatar: 'https://andrei.krokh.in/andrei.jpg'
 			});
 		
 		expect(res.status).toBe(409);
@@ -51,7 +51,7 @@ describe('Test POST /api/user endpoint', () => {
 	});
 });
 
-describe('Test POST /api/user/{id}/avatar', () => {
+describe('Test POST /api/user/{id}/avatar endpoint', () => {
 	test('Test POST /api/user/{id}/avatar with invalid ID', async () => {
 		const res = await server.post('/api/user/-1/avatar')
 			.send({avatar: 'https://andrei.krokh.in/andrei.jpg'});
