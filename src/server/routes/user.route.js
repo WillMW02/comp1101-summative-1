@@ -167,6 +167,17 @@ router.post('/', UserController.createUser);
  *         description: Avatar updated
  *       404:
  *         description: User could not be found by specified ID
+ *       406:
+ *         description: Request Body did not pass validation
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 err:
+ *                   type: string
+ *                   description: Error message explaining invalid data
+ *                   example: Request body did not include required parameters
  */
 router.post('/:id/avatar', UserController.setAvatar);
 
