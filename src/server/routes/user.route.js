@@ -138,6 +138,40 @@ router.post('/', UserController.createUser);
 
 /**
  * @swagger
+ * /user/{id}/avatar:
+ *   post:
+ *     summary: Set a user avatar
+ *     tags: 
+ *       - Users
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The Unique Identifier of the user to be changed
+ *         schema:
+ *           type: integer
+ *           example: 0
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               avatar:
+ *                 type: string
+ *                 description: The link to the avatar of the user
+ *                 example: https://andrei.krokh.in/andrei.jpg
+ *     responses:
+ *       202:
+ *         description: Avatar updated
+ *       404:
+ *         description: User could not be found by specified ID
+ */
+router.post('/:id/avatar', UserController.setAvatar);
+
+/**
+ * @swagger
  * /user/{id}:
  *   delete:
  *     summary: Delete a single user specified by ID

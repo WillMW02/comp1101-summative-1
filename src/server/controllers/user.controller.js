@@ -112,6 +112,39 @@ export const createUser = async (req, res, next) => {
  * @param {function} next
  * @returns void
  */
+export const setAvatar = async (req, res, next) => {
+	logger.info(`setAvatar Invoked with ${JSON.stringify(req.body)}`, true);
+
+	if(!(req.body && req.body.avatar)) {
+		res.status(406);
+		return res.json({
+			err: 'Request body did not include required parameters'
+		});
+	}
+	let dat;
+	try {
+		dat = await UserModel.setAvatar(req.params.id, req.body.avatar);
+		res.status(202);
+		if(!dat) {
+			res.status(404);
+			return res.send();
+		}
+		return res.send();
+	} catch(err) {
+		res.status(500);
+		res.send();
+		next(err);
+		return;
+	}
+};
+
+/**
+ * 
+ * @param {Express.Request} req 
+ * @param {Express.Response} res 
+ * @param {function} next
+ * @returns void
+ */
 export const deleteUser = async (req, res, next) => {
 	try {
 		if(await UserModel.remove(req.params.id)) {

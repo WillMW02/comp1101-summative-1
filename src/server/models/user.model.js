@@ -92,6 +92,28 @@ export const create = async user => {
 };
 
 /**
+ * Sets the avatar of a user by identified by ID
+ * @param {string | number} id 
+ * @param {string} avatar 
+ */
+export const setAvatar = async (id, avatar) => {
+	const conn = await getConn();
+	try {
+		let rows = await conn.query(SqlCommands.users.exists, [id]);
+		if(rows.length > 0) {
+			rows = await conn.query(SqlCommands.users.setAvatar, [avatar, id]);
+			return true;
+		} return false;
+		
+	} catch(err) {
+		logger.error(err, true);
+		throw new Error('An error occured whilst changing a user avatar');
+	} finally {
+		if (conn) conn.end();
+	}
+};
+
+/**
  * Delete a user from the database
  * 
  * @param {string | number} id the ID of the user to be deleted

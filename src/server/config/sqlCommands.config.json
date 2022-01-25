@@ -13,6 +13,7 @@
 		"exists": "SELECT users.id FROM users WHERE id = ?;",
 		"existsByName": "SELECT users.id FROM users WHERE name = ?;",
 		"create": "INSERT INTO users (name, avatar) VALUES (?,?);SELECT LAST_INSERT_ID();",
+		"setAvatar": "UPDATE users SET avatar = ? WHERE id = ?;",
 		"delete": "DELETE FROM users WHERE id = ?;"
 	}
 }
