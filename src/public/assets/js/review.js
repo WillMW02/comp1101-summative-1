@@ -17,7 +17,7 @@ export class Review {
 
 	generateElement = () => {
 		let instance = `
-		<div class="card review">
+		<div class="card review" id="Review-{{Review_Id}}">
 			<div class="card-content">
 				<div class="content">
 					<p class="title is-3">{{Review_Title}}</p>
@@ -38,6 +38,7 @@ export class Review {
 				</div>
 			</div>
 		</div>`;
+		instance = instance.replaceAll('{{Review_Id}}', this.id);
 		instance = instance.replaceAll('{{Review_Title}}', this.title);
 		instance = instance.replaceAll('{{Review_Content}}', this.content);
 		instance = instance.replaceAll('{{Review_Time}}', this.date);
