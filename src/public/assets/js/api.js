@@ -36,7 +36,7 @@ export class APIRequest {
 			callback(dat, null);
 		} catch(err) {
 			callback(null, {
-				code: res.status,
+				code: res?res.status:500,
 				message: err
 			});
 		}
@@ -47,8 +47,9 @@ export class APIRequest {
 	 * @param {reqCallback} callback 
 	 */
 	post = async callback => {
+		let res;
 		try{
-			const res = await fetch(`${api_endpoint_url}${this.endpoint}`, {
+			res = await fetch(`${api_endpoint_url}${this.endpoint}`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -60,7 +61,10 @@ export class APIRequest {
 			const dat = JSON.parse(await res.text());
 			callback(dat, null);
 		} catch(err) {
-			callback(null, err);
+			callback(null, {
+				code: res?res.status:500,
+				message: err
+			});
 		}
 	};
 
@@ -69,8 +73,9 @@ export class APIRequest {
 	 * @param {reqCallback} callback 
 	 */
 	delete = async callback => {
+		let res;
 		try{
-			const res = await fetch(`${api_endpoint_url}${this.endpoint}`, {
+			res = await fetch(`${api_endpoint_url}${this.endpoint}`, {
 				method: 'DELETE'
 			});
 			if(!res.ok) throw new Error(`An error occured during DELETE to ${this.endpoint}`);
@@ -78,7 +83,10 @@ export class APIRequest {
 			const dat = JSON.parse(await res.text());
 			callback(dat, null);
 		} catch(err) {
-			callback(null, err);
+			callback(null, {
+				code: res?res.status:500,
+				message: err
+			});
 		}
 	};
 }
