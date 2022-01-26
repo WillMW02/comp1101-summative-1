@@ -19,10 +19,6 @@ const pageInit = () => {
 		navBurger.classList.toggle('is-active');
 		navContent.classList.toggle('is-active');
 	});
-
-	Notifier.error('404, shit\'s broken yo');
-	Notifier.info('INFORMATION');
-	Notifier.ok('Ok boomer');
 };
 
 /**
@@ -77,7 +73,10 @@ const modalInit = () => {
 const fetchReviews = async () => {
 	const req = new APIRequest('/review/');
 	await req.get((res,err) => {
-		if(err) return console.error(err);
+		if(err) {
+			Notifier.error('An error occured whilst fetching reviews');
+			return console.error(err);
+		}
 		reviews = [];
 		res.forEach(v => {
 			reviews.push(new Review(v));
