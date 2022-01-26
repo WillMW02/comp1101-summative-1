@@ -40,55 +40,65 @@
     <div class="modal" id="createReviewModal">
         <div class="modal-background"></div>
         <div class="modal-card">
-          <header class="modal-card-head">
-            <p class="modal-card-title">Create Review</p>
-            <button class="delete" aria-label="close"></button>
-          </header>
+            <header class="modal-card-head">
+                <p class="modal-card-title">Create Review</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
           
-          <form method="POST" id="createReviewForm">
-            <section class="modal-card-body">
-                    <div class="columns">
-                        <div class="field column">
-                            <label class="label">Name</label>
-                            <input class="input" name="author_name" type="text" placeholder="Author Name">
+            <form method="POST" id="createReviewForm">
+                <section class="modal-card-body">
+                        <div class="columns">
+                            <div class="field column">
+                                <label class="label">Name</label>
+                                <input class="input" name="author_name" type="text" placeholder="Author Name">
+                            </div>
+                            <div class="field column">
+                                <label class="label">Title</label>
+                                <input class="input" name="review_title" type="text" placeholder="Review Title">
+                            </div>
                         </div>
-                        <div class="field column">
-                            <label class="label">Title</label>
-                            <input class="input" name="review_title" type="text" placeholder="Review Title">
+                        <div class="field">
+                            <textarea class="textarea" name="review_content" rows="5" placeholder="Review Content"></textarea>
                         </div>
-                    </div>
-                    <div class="field">
-                        <textarea class="textarea" name="review_content" rows="5" placeholder="Review Content"></textarea>
-                    </div>
-                    <div class="control">
-                        <label class="label">Rating</label>
-                        <input type="radio" value="1" id="1" name="review_rating" checked>
-                        <input type="radio" value="2" id="2" name="review_rating">
-                        <input type="radio" value="3" id="3" name="review_rating">
-                        <input type="radio" value="4" id="4" name="review_rating">
-                        <input type="radio" value="5" id="5" name="review_rating">
-                    </div>
-            </section>
-            <footer class="modal-card-foot">
-                <input type="submit" class="button is-success" value="Create">
-            </footer>
-          </form>
+                        <div class="control">
+                            <label class="label">Rating</label>
+                            <input type="radio" value="1" id="1" name="review_rating" checked>
+                            <input type="radio" value="2" id="2" name="review_rating">
+                            <input type="radio" value="3" id="3" name="review_rating">
+                            <input type="radio" value="4" id="4" name="review_rating">
+                            <input type="radio" value="5" id="5" name="review_rating">
+                        </div>
+                </section>
+                <footer class="modal-card-foot">
+                    <input type="submit" class="button is-success" value="Create">
+                </footer>
+            </form>
         </div>
     </div>
 
     <div class="modal" id="changeAvatarModal">
         <div class="modal-background"></div>
         <div class="modal-card">
-          <header class="modal-card-head">
-            <p class="modal-card-title">Change Avatar</p>
-            <button class="delete" aria-label="close"></button>
-          </header>
-          <section class="modal-card-body">
-            <!-- Content ... -->
-          </section>
-          <footer class="modal-card-foot">
-            <button class="button is-success">Update</button>
-          </footer>
+            <header class="modal-card-head">
+                <p class="modal-card-title">Change Avatar</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+
+            <form method="POST" id="updateAvatarForm">
+                <section class="modal-card-body">
+                    <div class="field">
+                        <label class="label">Name</label>
+                        <input class="input" name="user_name" type="text" placeholder="User Name">
+                    </div>
+                    <div class="field">
+                        <label class="label">Avatar</label>
+                        <input class="input" name="user_avatar" type="text" placeholder="Avatar URL">
+                    </div>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button is-success">Update</button>
+                </footer>
+            </form> 
         </div>
     </div>
 

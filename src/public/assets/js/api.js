@@ -58,7 +58,8 @@ export class APIRequest {
 			});
 			if(!res.ok) throw new Error(`An error occured during POST to ${this.endpoint}`);
 
-			const dat = JSON.parse(await res.text());
+			const r = await res.text();
+			const dat = r?JSON.parse(r):null;
 			callback(dat, null);
 		} catch(err) {
 			callback(null, {

@@ -52,7 +52,7 @@ The code in this repository is protected by the [Creative Commons Zero v1.0 Univ
 - [x] ~~Post New Review~~
 - [x] ~~Read All Existing Reviews~~
 #### Users
-- [ ] Add Avatar To A User Specified By Username (Case Insensitive)
+- [x] ~~Add Avatar To A User Specified By Username~~
 
 ---
 

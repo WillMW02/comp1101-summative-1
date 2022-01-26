@@ -25,6 +25,12 @@ const pageInit = () => {
 		e.preventDefault();
 		createReview(Object.fromEntries(new FormData(createReviewForm)));
 	});
+
+	const updateAvatarForm = document.querySelector('#updateAvatarForm');
+	updateAvatarForm.addEventListener('submit', e => {
+		e.preventDefault();
+		updateAvatar(Object.fromEntries(new FormData(updateAvatarForm)));
+	});
 };
 
 /**
@@ -82,6 +88,36 @@ const createReview = dat => {
 	} else {
 		return Notifier.error('Inputs for creating review were invalid.');
 	}
+};
+
+/**
+ * Update an avatar based on form inputs
+ * 
+ * @param {Object} dat
+ */
+const updateAvatar = dat => {
+	if(!(dat && dat.user_name != '' && dat.user_avatar != '')) return Notifier.error('Inputs for changing avatar were invalid.');
+	const userExistsReq = new APIRequest(`/user/name/${dat.user_name}`);
+	userExistsReq.get((res, err) => {
+		if(err) {
+			if(err.code != 404) {
+				Notifier.error('An error occured whilst fetching a user, please try again later.');
+			} else Notifier.error('No user could be found matching the provided name.');
+			return console.error(err);
+		}
+		const setAvatarReq = new APIRequest(`/user/${res.id}/avatar`, {
+			avatar: dat.user_avatar
+		});
+		setAvatarReq.post((res, err) => {
+			if(err) {
+				Notifier.error('An error occured whilst changing a user\'s avatar, please try again later.');
+				return console.error(err);
+			}
+			
+			loadReviews(true);
+			return Notifier.ok('Avatar Updated!');
+		});
+	});
 };
 
 /**
