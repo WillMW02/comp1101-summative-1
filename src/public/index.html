@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./assets/css/index.css" />
 </head>
 <body>
+    <div id="notif-container"></div>
 
     <nav class="navbar is-dark">
         <div class="container">
@@ -18,17 +19,17 @@
                     <img src="./assets/images/logo.png" alt="Logo">
                 </a>
                 <span class="navbar-burger">
-                        <span></span>
-                <span></span>
-                <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </span>
             </div>
             <div id="navbar-content" class="navbar-menu">
                 <div class="navbar-end">
-                    <a class="navbar-item">
+                    <a class="navbar-item js-modal-trigger" data-target="createReviewModal">
                         Create Review
                     </a>
-                    <a class="navbar-item">
+                    <a class="navbar-item js-modal-trigger" data-target="changeAvatarModal">
                         Change Avatar
                     </a>
                 </div>
@@ -36,6 +37,37 @@
         </div>
     </nav>
 
+    <div class="modal" id="createReviewModal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Create Review</p>
+            <button class="delete" aria-label="close"></button>
+          </header>
+          <section class="modal-card-body">
+            <!-- Content ... -->
+          </section>
+          <footer class="modal-card-foot">
+            <button class="button is-success">Create</button>
+          </footer>
+        </div>
+    </div>
+
+    <div class="modal" id="changeAvatarModal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Change Avatar</p>
+            <button class="delete" aria-label="close"></button>
+          </header>
+          <section class="modal-card-body">
+            <!-- Content ... -->
+          </section>
+          <footer class="modal-card-foot">
+            <button class="button is-success">Update</button>
+          </footer>
+        </div>
+    </div>
 
     <div class="container">
         <section class="reviews">
@@ -44,5 +76,8 @@
         </section>
     </div>
     <script src="./assets/js/index.js" type="module"></script>
+    <script>
+        const notifCloser = e => console.log(e);
+    </script>
 </body>
 </html>

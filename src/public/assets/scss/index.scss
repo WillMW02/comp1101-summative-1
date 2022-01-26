@@ -1,6 +1,3 @@
-$primary: HoneyDew;
-$background: DimGrey;
-
 body {
 	background-color: #e5e5e5;
 	height: 100vh;
@@ -20,6 +17,18 @@ body {
 
 .title {
 	margin-bottom: 0.5rem !important;
+}
+
+#notif-container {
+	z-index: 9999;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin: 1rem;
+}
+
+#notif-container .notification {
+	max-width: 30rem;
 }
 
 @import '../../../../node_modules/bulma/bulma';
