@@ -19,6 +19,69 @@ const pageInit = () => {
 		navBurger.classList.toggle('is-active');
 		navContent.classList.toggle('is-active');
 	});
+
+	const createReviewForm = document.querySelector('#createReviewForm');
+	createReviewForm.addEventListener('submit', e => {
+		e.preventDefault();
+		createReview(Object.fromEntries(new FormData(createReviewForm)));
+	});
+};
+
+/**
+ * Create a Review from form data
+ * 
+ * @param {Object} dat 
+ * @returns void
+ */
+const createReview = dat => {
+	if(dat && dat.review_title != '' && dat.review_content != '' && dat.review_rating != '' && dat.author_name != '') {
+		const userExistsReq = new APIRequest(`/user/name/${dat.author_name}`);
+		userExistsReq.get((res, err) => {
+			/**
+			 * 
+			 */
+			const createReview = (res, err) => {
+				if(err) {
+					Notifier.error('An error occured whilst creating a user, please try again later.');
+					return console.error(err);
+				}
+				
+				const createReviewReq = new APIRequest('/review', {
+					user_id: res.id,
+					title: dat.review_title,
+					content: dat.review_content,
+					rating: dat.review_rating
+				});
+
+				createReviewReq.post((res, err) => {
+					if(err) {
+						Notifier.error('An error occured whilst creating a review, please try again later.');
+						return console.error(err);
+					}
+
+					loadReviews(true);
+					return Notifier.ok('Created Review!');
+				});
+			};
+
+			let createUserReq;
+			if(err) {
+				if(err.code != 404) {
+					Notifier.error('An error occured whilst fetching a user, please try again later.');
+					return console.error(err);
+				}
+				createUserReq = new APIRequest('/user', {
+					name: dat.author_name,
+					avatar: 'https://andrei.krokh.in/default.jpg'
+				});
+			}
+			if(createUserReq) {
+				createUserReq.post(createReview);
+			} else createReview(res, null);
+		});
+	} else {
+		return Notifier.error('Inputs for creating review were invalid.');
+	}
 };
 
 /**
@@ -74,7 +137,7 @@ const fetchReviews = async () => {
 	const req = new APIRequest('/review/');
 	await req.get((res,err) => {
 		if(err) {
-			Notifier.error('An error occured whilst fetching reviews');
+			Notifier.error('An error occured whilst fetching reviews, please try again later.');
 			return console.error(err);
 		}
 		reviews = [];
@@ -90,6 +153,7 @@ const fetchReviews = async () => {
  */
 const loadReviews = async force => {
 	if(force || !reviews) await fetchReviews();
+	document.querySelector('#reviews').innerHTML = '';
 	reviews.forEach(review => {
 		document.querySelector('#reviews').innerHTML += review.generateElement();
 	});

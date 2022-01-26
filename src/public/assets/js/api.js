@@ -25,8 +25,9 @@ export class APIRequest {
 	 * @param {reqCallback} callback 
 	 */
 	get = async callback => {
+		let res;
 		try{
-			const res = await fetch(`${api_endpoint_url}${this.endpoint}`, {
+			res = await fetch(`${api_endpoint_url}${this.endpoint}`, {
 				method: 'GET'
 			});
 			if(!res.ok) throw new Error(`An error occured during GET to ${this.endpoint}`);
@@ -34,7 +35,10 @@ export class APIRequest {
 			const dat = JSON.parse(await res.text());
 			callback(dat, null);
 		} catch(err) {
-			callback(null, err);
+			callback(null, {
+				code: res.status,
+				message: err
+			});
 		}
 	};
 
@@ -46,6 +50,9 @@ export class APIRequest {
 		try{
 			const res = await fetch(`${api_endpoint_url}${this.endpoint}`, {
 				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
 				body: JSON.stringify(this.body)
 			});
 			if(!res.ok) throw new Error(`An error occured during POST to ${this.endpoint}`);
