@@ -6,6 +6,12 @@ export class Notifier {
         </div>
 	`;
 
+	/**
+	 * Send a generic notification
+	 * 
+	 * @param {string} type the bulma "type" for the notification eg. is-success
+	 * @param {string} message the message to send
+	 */
 	static notify = (type, message) => {
 		const target = document.querySelector('#notif-container');
 
@@ -30,14 +36,29 @@ export class Notifier {
 		});
 	};
 
+	/**
+	 * Send error notification
+	 * 
+	 * @param {string} message 
+	 */
 	static error = message => {
 		this.notify('is-danger', message);
 	};
 
+	/**
+	 * Send info notification
+	 * 
+	 * @param {string} message 
+	 */
 	static info = message => {
 		this.notify('is-info', message);
 	};
 
+	/**
+	 * Send succcess notification
+	 * 
+	 * @param {string} message 
+	 */
 	static ok = message => {
 		this.notify('is-success', message);
 	};
