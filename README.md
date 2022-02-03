@@ -1,5 +1,8 @@
 # COMP1101 Summative 1 - William Maltby-Wehner
 
+## :warning: Disclaimer :warning:
+This software contains several vulnerabilities for XSS and SQL injection, These were not criteria for the assessment and due to time constraints were not implemented. Do not connect this to a public facing site or a database where sensitive data is accessible.
+
 ## Description
 A simple Review system, allows posting of reviews with a rating between 1 and 5 :star: 
 
