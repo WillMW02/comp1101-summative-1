@@ -1,5 +1,5 @@
 import { getConn } from '../lib/mysql.js';
-import SqlCommands from '../config/sqlCommands.config.json';
+import SqlCommands from '../config/sqlCommands.config.json' assert { type: 'json' };
 import logger from '../lib/logger.js';
 
 /**
